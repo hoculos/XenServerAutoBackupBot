@@ -18,9 +18,7 @@ VM_NAMES=$(xe vm-param-list uuid="$UUID_VM" | grep name-label | sed -r 's/^[^:]+
 xe template-param-set is-a-template=false ha-always-run=false uuid="$UUID_SNAPHOTS" 
 xe vm-export uuid="$UUID_SNAPHOTS" filename=/var/backup/$HOSTNAME/$DATE/"$DATE-$VM_NAMES.xva"
 xe vm-uninstall uuid=$UUID_SNAPHOTS force=true
-#echo $UUID_VM
 echo $VM_NAMES
-echo "========================================================================"
 
 done
 
